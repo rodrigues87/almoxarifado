@@ -15,7 +15,7 @@ class Cautela(models.Model):
     aprovado = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.material
+        return self.material.nome
 
     class Meta:
         verbose_name_plural = "Cautela"

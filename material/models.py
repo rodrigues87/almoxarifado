@@ -8,4 +8,4 @@ class Material(models.Model):
         return self.nome
 
     class Meta:
-        verbose_name_plural = "Material"
+        verbose_name_plural = "Materiais"
