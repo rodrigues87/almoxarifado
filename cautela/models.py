@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from cadastro.models import Cadastro
@@ -7,10 +8,10 @@ from permissao.models import Permissao
 
 class Cautela(models.Model):
     requerente = models.ForeignKey(Cadastro, on_delete=models.CASCADE,related_name='requerente')
-    autor = models.ForeignKey(Cadastro, on_delete=models.CASCADE,related_name='autor')
+    autor = models.ForeignKey(User, on_delete=models.CASCADE,related_name='autor')
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     data_de_cautela = models.DateTimeField(auto_now=True)
-    data_de_devolucao = models.DateTimeField()
+    data_de_devolucao = models.DateField()
     aprovado = models.BooleanField(default=False)
 
     def __str__(self):
