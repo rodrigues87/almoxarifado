@@ -11,7 +11,7 @@ class Cautela(models.Model):
     autor = models.ForeignKey(User, on_delete=models.CASCADE,related_name='autor')
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     data_de_cautela = models.DateTimeField(auto_now=True)
-    data_de_devolucao = models.DateField()
+    data_de_devolucao = models.DateField(blank=True,null=True)
     aprovado = models.BooleanField(default=False)
 
     def __str__(self):

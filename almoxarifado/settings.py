@@ -57,7 +57,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'almoxarifado.urls'
 
-LOGIN_REDIRECT_URL = '/dashboard/'
 GROUP_REDIRECT_URL = '/auth/group/'
 
 TEMPLATES = [
@@ -133,7 +132,7 @@ STATIC_URL = '/static/'
 VALI_CONFIG = {
     # the vali-admin themes  default, blue, purple, green,brown
     'theme': 'red',
-    'dashboard': {'name': 'Dashboard', 'url': '/dashboard/'},
+    #'dashboard': {'name': 'Dashboard', 'url': '/dashboard/'},
     # the order for applist  default, registry
     # display applist by group: True
     #  e.g. {group: True}

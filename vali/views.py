@@ -71,11 +71,8 @@ class ValiDashboardBase(TemplateView):
 
 
 def verificarHoras(cadastro):
-    somaHorasUsuario = 0
-    registros = Cautela.objects.filter(requerente=cadastro)
-    for registro in registros:
-        somaHorasUsuario = somaHorasUsuario + registro.horas_adicionadas - registro.horas_usadas
-    return somaHorasUsuario
+    cautelas = Cautela.objects.filter(requerente=cadastro)
+    return cautelas.count()
 
 
 class ValiDashboardView(ValiDashboardBase):

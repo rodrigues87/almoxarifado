@@ -8,7 +8,7 @@ from django.db import models
 
 
 class CautelaAdmin(admin.ModelAdmin):
-    exclude = ('autor', 'data_de_cautela',)
+    exclude = ('autor', 'data_de_cautela','data_de_devolucao')
 
     formfield_overrides = {
         models.DateField: {'widget': AdminDateWidget},
