@@ -5,10 +5,22 @@ from django.contrib.admin.widgets import AdminDateWidget
 
 from cautela.models import Cautela
 from django.db import models
+from datetime import datetime
+
+
+def devolver_material(modeladmin, request, queryset):
+    for cautela in queryset:
+        cautela.data_de_devolucao = datetime.now()
+        cautela.save()
+
+
+devolver_material.short_description = 'Devolver Material'
 
 
 class CautelaAdmin(admin.ModelAdmin):
-    exclude = ('autor', 'data_de_cautela','data_de_devolucao')
+    exclude = ('autor', 'data_de_cautela', 'data_de_devolucao')
+    list_display = ('material', 'requerente', 'data_de_cautela', 'data_de_devolucao', 'quantidade_emprestada')
+    actions = [devolver_material, ]
 
     formfield_overrides = {
         models.DateField: {'widget': AdminDateWidget},

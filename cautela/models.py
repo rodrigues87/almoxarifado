@@ -12,6 +12,7 @@ class Cautela(models.Model):
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     data_de_cautela = models.DateTimeField(auto_now=True)
     data_de_devolucao = models.DateField(blank=True,null=True)
+    quantidade_emprestada = models.IntegerField(default=1)
     aprovado = models.BooleanField(default=False)
 
     def __str__(self):
